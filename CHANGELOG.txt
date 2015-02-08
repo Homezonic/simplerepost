@@ -6,7 +6,7 @@ Possible log types are ``[add]``, ``[bug]``, ``[change]`` and ``[info]``.
 
 ---
 
-v0.9.5 (unreleased)
+v0.9.5 (2015-02-29)
 
 - [add] Handle videos (#6)
 - [add] Store previous watermark choice (#11)
