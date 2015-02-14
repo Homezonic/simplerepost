@@ -41,6 +41,9 @@ public class SettingsActivity extends PreferenceActivity {
     // Log tag
     public static final String LOG_TAG = SettingsActivity.class.getName();
 
+    // Settings keys. These must match the keys in preferences.xml.
+    public static final String SETTING_CAPTION = "SETTING_CAPTION";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,9 +85,7 @@ public class SettingsActivity extends PreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // Make sure default values are applied.  In a real app, you would
-            // want this in a shared function that is used to retrieve the
-            // SharedPreferences wherever they are needed.
+            // Make sure default values are applied
             PreferenceManager.setDefaultValues(getActivity(), R.xml.preferences, false);
 
             // Load the preferences from an XML resource
@@ -95,8 +96,7 @@ public class SettingsActivity extends PreferenceActivity {
             mSharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
             // Trigger manually for initial display.
-            // TODO: This is a hack, change event key should not be hardcoded
-            onSharedPreferenceChanged(mSharedPreferences, "captionTextPreference");
+            onSharedPreferenceChanged(mSharedPreferences, SETTING_CAPTION);
         }
 
         @Override

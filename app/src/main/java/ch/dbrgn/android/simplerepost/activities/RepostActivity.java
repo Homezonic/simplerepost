@@ -50,6 +50,8 @@ import ch.dbrgn.android.simplerepost.R;
 import ch.dbrgn.android.simplerepost.models.Media;
 import ch.dbrgn.android.simplerepost.models.User;
 import ch.dbrgn.android.simplerepost.utils.AuthHelper;
+import ch.dbrgn.android.simplerepost.utils.PreferencesHelper;
+import ch.dbrgn.android.simplerepost.utils.StringTemplate;
 import ch.dbrgn.android.simplerepost.utils.ToastHelper;
 
 
@@ -223,26 +225,14 @@ public class RepostActivity extends ActionBarActivity {
             return;
         }
 
-        // Prepare text
-        StringBuilder builder = new StringBuilder();
-        final String clap = "\uD83D\uDC4F";
-        builder.append("Congrats!\n.\n");
-        builder.append("★ Visit Rapperswil Feature ★\n");
-        builder.append("Picture by - @" + mMedia.getUser().getUsername() + "\n");
-        builder.append("Selected by - @" + mCurrentUser.getUsername() + "\n.\n");
-        builder.append("Show ❤" + clap + " to the original post as well, thanks.\n.\n");
-        builder.append("For a chance to get featured follow @visitrapperswil ");
-        builder.append("and tag #rapperswil or #visitrapperswil.");
-
         // Prepare intent
         final String type = "image/*";
         final String mediaPath = file.getPath();
-        final String captionText = builder.toString();
+        final String captionText = getCaptionString();
 
         // Create intent
         createInstagramIntent(type, mediaPath, captionText);
     }
-
 
     /*** Private helper methods ***/
 
@@ -260,6 +250,7 @@ public class RepostActivity extends ActionBarActivity {
             finish();
         }
     }
+
 
     /**
      * Save the specified bitmap to the external storage. The
@@ -378,6 +369,29 @@ public class RepostActivity extends ActionBarActivity {
         watermark.getBitmap().recycle();
 
         return watermarked;
+    }
+
+    /**
+     * Retrieve the caption string from the settings.
+     */
+    private String getCaptionString() {
+        // Read template from settings
+        final SharedPreferences preferences = PreferencesHelper.getSharedPreferences(this);
+        String captionString = preferences.getString(
+                SettingsActivity.SETTING_CAPTION,
+                getString(R.string.settings_caption_default_template)
+        );
+        Log.d(LOG_TAG, "Using caption template: " + captionString);
+
+        // Replace placeholders
+        StringTemplate template = new StringTemplate(captionString);
+        template.replace("{author}", mMedia.getUser().getUsername());
+        template.replace("{reposter}", mCurrentUser.getUsername());
+
+        // Return final string
+        final String finalCaption = template.toString();
+        Log.i(LOG_TAG, "Formatted caption: " + finalCaption);
+        return finalCaption;
     }
 
 }
