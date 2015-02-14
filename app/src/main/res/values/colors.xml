@@ -2,6 +2,13 @@
 <resources>
     <color name="blue_light">#33b5e5</color>
     <color name="blue_dark">#0099cc</color>
-    <color name="blue_instagram">#517fa4</color>
+
+    <color name="instagram_blue">#517fa4</color>
+    <color name="instagram_title_blue">#06365f</color>
+    <color name="instagram_body_darkgray">#222222</color>
+    <color name="instagram_accent_lightgray">#c7c7c7</color>
+
     <color name="white">#ffffff</color>
+    <color name="red">#ff0000</color>
+    <color name="pink">#ff00ff</color>
 </resources>

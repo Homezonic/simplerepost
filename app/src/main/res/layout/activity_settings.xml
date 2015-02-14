@@ -13,8 +13,9 @@
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        app:theme="@style/AppTheme"
-        app:title="@string/title_activity_settings" />
+        app:title="@string/title_activity_settings"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <fragment
         android:name="ch.dbrgn.android.simplerepost.activities.SettingsActivity$GeneralPreferenceFragment"
