@@ -103,9 +103,9 @@ public class RepostActivity extends ActionBarActivity {
 
         // Prepare data
         String[] spinnerArray = new String[Config.REPOST_STYLES.size()];
-        Iterator<String> styleIterator = Config.REPOST_STYLES.keySet().iterator();
+        Iterator<Integer> styleIterator = Config.REPOST_STYLES.keySet().iterator();
         for (int i = 0; i < Config.REPOST_STYLES.size(); i++) {
-            spinnerArray[i] = styleIterator.next();
+            spinnerArray[i] = getString(styleIterator.next());
         }
 
         // Set adapter
@@ -263,7 +263,7 @@ public class RepostActivity extends ActionBarActivity {
         final String externalStorageState = Environment.getExternalStorageState();
         boolean isWritable = externalStorageState.equals(Environment.MEDIA_MOUNTED);
         if (!isWritable) {
-            ToastHelper.showShortToast(this, "External storage is not writeable.");
+            ToastHelper.showShortToast(this, getString(R.string.error_storage_not_available));
             return null;
         }
 
@@ -272,7 +272,7 @@ public class RepostActivity extends ActionBarActivity {
         final File directory = new File(pubDirectory, Config.PICTURES_DIRECTORY_NAME);
         if (!directory.exists()) {
             if (!directory.mkdirs()) {
-                ToastHelper.showShortToast(this, "Could not create storage directory.");
+                ToastHelper.showShortToast(this, getString(R.string.error_storage_not_created));
                 return null;
             }
         }
@@ -319,7 +319,7 @@ public class RepostActivity extends ActionBarActivity {
         share.putExtra(Intent.EXTRA_TEXT, caption);
 
         // Broadcast the Intent.
-        startActivity(Intent.createChooser(share, "Share to"));
+        startActivity(Intent.createChooser(share, getString(R.string.share_to)));
     }
 
     /**
@@ -334,7 +334,7 @@ public class RepostActivity extends ActionBarActivity {
             background = new BitmapDrawable(getResources(), is);
             is.close();
         } catch (FileNotFoundException e) {
-            ToastHelper.showShortToast(this, "Could not find downloaded image on filesystem");
+            ToastHelper.showShortToast(this, getString(R.string.error_image_not_found));
             Log.e(LOG_TAG, "IOException: " + e.toString());
             return null;
         } catch (IOException e) {

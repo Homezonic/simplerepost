@@ -31,12 +31,12 @@ public class Config {
 
     public static final String PICTURES_DIRECTORY_NAME = "SimpleRepost";
 
-    public static final Map<String, Integer> REPOST_STYLES;
+    public static final Map<Integer, Integer> REPOST_STYLES;
     static {
-        Map<String, Integer> map = new HashMap<>();
-        map.put("Light", R.raw.white);
-        map.put("Dark", R.raw.black);
-        map.put("None", R.raw.none);
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(R.string.watermark_light, R.raw.white);
+        map.put(R.string.watermark_dark, R.raw.black);
+        map.put(R.string.watermark_none, R.raw.none);
         //map.put("Dark", R.raw.visitrapperswil_dark);
         //map.put("Dark Filled", R.raw.visitrapperswil_dark_filled);
         //map.put("Light", R.raw.visitrapperswil_light);

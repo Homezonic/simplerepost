@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="title_activity_main">Simple Repost</string>
 
     <string name="welcome_text">Welcome!</string>
@@ -7,4 +7,10 @@
     <string name="place_url_hint">Paste URL here</string>
 
     <string name="loading_preview">Loading preview…</string>
+
+    <string name="error_validation">This must be an Instagram URL in the form <xliff:g id="url"> "https://instagram.com/p/ABC123".</xliff:g></string>
+    <string name="error_download_media_info">Could not download media information from Instagram</string>
+    <string name="error_repost_video">Reposting videos is currently not supported</string>
+    <string name="error_download_media">Could not download media from Instagram</string>
+    <string name="error_save_image">Could not save the image to the filesystem</string>
 </resources>

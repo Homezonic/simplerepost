@@ -7,5 +7,13 @@
     <string name="action_logout">Logout</string>
     <string name="action_repost">Repost</string>
     <string name="action_preview">Preview</string>
+    <string name="watermark_light">Light</string>
+    <string name="watermark_dark">Dark</string>
+    <string name="watermark_none">None</string>
+
+    <string name="error_generic">Something went wrong, please try again.</string>
+
+    <!-- Title of "share to instagram" dialog -->
+    <string name="share_to">Share to</string>
 
 </resources>

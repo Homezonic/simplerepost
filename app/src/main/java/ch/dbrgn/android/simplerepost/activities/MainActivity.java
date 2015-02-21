@@ -111,8 +111,7 @@ public class MainActivity extends ActionBarActivity {
                 } else {
                     if (parseShortcodeUrl(text) == null) {
                         // Invalid input
-                        mUrlInputView.setError("This must be an Instagram URL in the form " +
-                                "\"https://instagram.com/p/ABC123\".");
+                        mUrlInputView.setError(getString(R.string.error_validation));
                         mPreviewButton.setEnabled(false);
                     } else {
                         mUrlInputView.setError(null);
@@ -250,7 +249,7 @@ public class MainActivity extends ActionBarActivity {
 
         // Verify media information was sent
         if (mMedia == null) {
-            ToastHelper.showShortToast(this, "Could not download media information from Instagram");
+            ToastHelper.showShortToast(this, getString(R.string.error_download_media_info));
             Log.e(LOG_TAG, "Media is null");
 
             // Hide progress dialog
@@ -258,7 +257,7 @@ public class MainActivity extends ActionBarActivity {
 
             return;
         } else if (mMedia.getType().equals("video")) {
-            ToastHelper.showLongToast(this, "Reposting videos is currently not supported");
+            ToastHelper.showLongToast(this, getString(R.string.error_repost_video));
             Log.w(LOG_TAG, "User tried to repost a video");
 
             // Hide progress dialog
@@ -281,7 +280,7 @@ public class MainActivity extends ActionBarActivity {
         // Verify bitmap was sent
         final Bitmap bitmap = event.getBitmap();
         if (bitmap == null) {
-            ToastHelper.showShortToast(this, "Could not download media from Instagram");
+            ToastHelper.showShortToast(this, getString(R.string.error_download_media));
             Log.e(LOG_TAG, "Bitmap is null");
             return;
         }
@@ -300,7 +299,7 @@ public class MainActivity extends ActionBarActivity {
             stream.close();
             event.getBitmap().recycle();
         } catch (IOException e) {
-            ToastHelper.showShortToast(this, "Could not save the image to the filesystem");
+            ToastHelper.showShortToast(this, getString(R.string.error_save_image));
             Log.e(LOG_TAG, "IOException: " + e.toString());
             return;
         }

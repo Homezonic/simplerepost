@@ -20,6 +20,8 @@ package ch.dbrgn.android.simplerepost.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+import ch.dbrgn.android.simplerepost.R;
+
 public class ToastHelper {
 
     public static final String LOG_TAG = ToastHelper.class.getName();
@@ -42,7 +44,7 @@ public class ToastHelper {
     }
 
     public static void showGenericErrorToast(Context context) {
-        final String message = "Something went wrong, please try again.";
+        final String message = context.getString(R.string.error_generic);
         showShortToast(context, message);
     }
 
