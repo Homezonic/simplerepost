@@ -25,7 +25,7 @@
     <string name="settings_caption_title">Bildunterschrift</string>
     <string name="share_to">Teilen auf Instagram</string>
     <string name="title_activity_login">Login</string>
-    <string name="title_activity_main">Simple Repost</string>
+    <string name="title_activity_main">Simple Repost (Beta)</string>
     <string name="title_activity_repost">Reposten</string>
     <string name="title_activity_settings">Einstellungen</string>
     <string name="watermark_dark">Dunkel</string>
@@ -33,4 +33,12 @@
     <string name="watermark_none">Ohne</string>
     <string name="welcome_text">Hallo!</string>
     <string name="welcome_text_personalized">Hallo, %s!</string>
+    <string name="action_about">Über diese App</string>
+    <string name="title_activity_about">Über diese App</string>
+    <string name="about_author_headline">Der Autor</string>
+    <string name="about_license_headline">Lizenz</string>
+    <string name="about_license_text">Diese App unterliegt der GPLv3 Lizenz. Der Programmcode und der vollständige Lizenztext finden sich unter https://github.com/dbrgn/simplerepost/.</string>
+    <string name="about_author_text">Hi. Ich bin Danilo, ein junger Software-Ingenieur aus der Schweiz. Ich habe diese App entwickelt, um das Leben von Personen zu vereinfachen die Instagram-Hubs betreuen. Du findest mich auf Twitter (@dbrgn), Instagram (@dbrgn) und auf meiner Website (www.dbrgn.ch). </string>
+    <string name="about_version_headline">Version</string>
+    <string name="error_version_detection">Version konnte nicht festgestellt werden</string>
 </resources>

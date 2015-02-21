@@ -1,5 +1,5 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="title_activity_main">Simple Repost</string>
+    <string name="title_activity_main">Simple Repost (Beta)</string>
 
     <string name="welcome_text">Hi!</string>
     <string name="welcome_text_personalized">Hi, %s!</string>

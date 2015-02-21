@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_about">About this app</string>
+
+    <string name="about_author_headline">The Author</string>
+    <string name="about_author_text">Hi, I\'m Danilo, a young software engineer from Switzerland. I created this app to simplify the life of people that maintain an Instagram hub. You can find me on Twitter (@dbrgn), Instagram (@dbrgn) and on the Internet (www.dbrgn.ch).</string>
+
+    <string name="about_license_headline">License</string>
+    <string name="about_license_text">This app is released under the GPLv3 license. Code and full license text can be found at https://github.com/dbrgn/simplerepost/.</string>
+
+    <string name="about_version_headline">Version</string>
+    <string name="error_version_detection">Version could not be determined</string>
+</resources>
