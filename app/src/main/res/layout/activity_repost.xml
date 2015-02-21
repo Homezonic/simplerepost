@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/preview_info"
         android:layout_marginTop="16dp"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image_description"/>
 
     <Button
         android:id="@+id/repost_button"

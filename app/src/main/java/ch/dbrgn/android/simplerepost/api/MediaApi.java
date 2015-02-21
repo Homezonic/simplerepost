@@ -19,7 +19,6 @@
 package ch.dbrgn.android.simplerepost.api;
 
 import ch.dbrgn.android.simplerepost.models.MediaResponse;
-import ch.dbrgn.android.simplerepost.models.Profile;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;

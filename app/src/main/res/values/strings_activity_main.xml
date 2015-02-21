@@ -6,5 +6,5 @@
     <string name="info_msg">This app lets you repost an Instagram post by URL.</string>
     <string name="place_url_hint">Paste URL here</string>
 
-    <string name="loading_preview">Loading preview...</string>
+    <string name="loading_preview">Loading preview…</string>
 </resources>

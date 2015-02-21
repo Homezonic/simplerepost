@@ -17,6 +17,7 @@
  **/
 package ch.dbrgn.android.simplerepost.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -124,13 +125,13 @@ public class LoginActivity extends ActionBarActivity {
     private String parseFragment(String fragment) {
         final String[] fragmentParts = fragment.split("=");
         assert fragmentParts.length == 2;
-        final String accessToken = fragmentParts[1];
-        return accessToken;
+        return fragmentParts[1]; // Return access token
     }
 
     /**
      * Store access token in shared preferences file.
      */
+    @SuppressLint("CommitPrefEdits")
     private void storeAccessToken(String accessToken) {
         SharedPreferences settings = getSharedPreferences(Config.SHARED_PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();

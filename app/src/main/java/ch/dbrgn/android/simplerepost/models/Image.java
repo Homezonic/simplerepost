@@ -18,7 +18,6 @@
 
 package ch.dbrgn.android.simplerepost.models;
 
-import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
