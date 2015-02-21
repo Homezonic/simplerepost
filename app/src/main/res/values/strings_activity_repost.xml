@@ -4,11 +4,11 @@
 
     <string name="repost_title">Preview</string>
     <string name="repost_info">This picture will be reposted:</string>
-    <string name="repost_style">Style</string>
+    <string name="repost_style">Watermark</string>
 
     <string name="image_description">Image to be reposted</string>
 
-    <string name="error_storage_not_available">External storage is not writeable.</string>
-    <string name="error_storage_not_created">Could not create storage directory.</string>
+    <string name="error_storage_not_available">External storage is not writeable</string>
+    <string name="error_storage_not_created">Could not create storage directory</string>
     <string name="error_image_not_found">Could not find downloaded image on filesystem</string>
 </resources>

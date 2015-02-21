@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">SimpleRepost</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_preview">Vorschau</string>
+    <string name="action_repost">Repost</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="error_download_media">Konnte Medien nicht von Instagram herunterladen</string>
+    <string name="error_download_media_info">Konnte Medieninformationen nicht von Instagram herunterladen</string>
+    <string name="error_generic">Oops, etwas ist schiefgegangen. Bitte versuche es nochmals.</string>
+    <string name="error_image_not_found">Konnte heruntergeladenes Bild nicht finden</string>
+    <string name="error_repost_video">Das Reposten von Videos ist aktuell nicht unterstützt</string>
+    <string name="error_save_image">Konnte Bild nicht speichern</string>
+    <string name="error_storage_not_available">Externer Speicher kann nicht beschrieben werden</string>
+    <string name="error_storage_not_created">Bild-Verzeichnis kann nicht erstellt werden</string>
+    <string name="error_validation">Dies muss eine Instagram-URl in der Form "https://instagram.com/p/ABC123" sein.</string>
+    <string name="image_description">Zu repostendes Bild</string>
+    <string name="info_msg">Mit dieser App kannst du ein Bild von Instagram reposten. Kopiere dazu einfach die URL in das Feld unten. </string>
+    <string name="loading_preview">Vorschau laden…</string>
+    <string name="login_text">Bitte melde dich mit deinem Instagram Konto an.</string>
+    <string name="place_url_hint">URL hier einfügen</string>
+    <string name="repost_info">Folgendes Bild wird reposted werden:</string>
+    <string name="repost_style">Wasserzeichen</string>
+    <string name="repost_title">Vorschau</string>
+    <string name="settings_caption_title">Bildunterschrift</string>
+    <string name="share_to">Teilen auf Instagram</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_main">Simple Repost</string>
+    <string name="title_activity_repost">Reposten</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="watermark_dark">Dunkel</string>
+    <string name="watermark_light">Hell</string>
+    <string name="watermark_none">Ohne</string>
+    <string name="welcome_text">Hallo!</string>
+    <string name="welcome_text_personalized">Hallo, %s!</string>
+</resources>

@@ -14,6 +14,6 @@
     <string name="error_generic">Something went wrong, please try again.</string>
 
     <!-- Title of "share to instagram" dialog -->
-    <string name="share_to">Share to</string>
+    <string name="share_to">Share to Instagram</string>
 
 </resources>
