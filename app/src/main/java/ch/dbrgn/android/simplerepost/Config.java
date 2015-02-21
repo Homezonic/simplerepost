@@ -34,10 +34,13 @@ public class Config {
     public static final Map<String, Integer> REPOST_STYLES;
     static {
         Map<String, Integer> map = new HashMap<>();
-        map.put("Dark", R.raw.visitrapperswil_dark);
-        map.put("Dark Filled", R.raw.visitrapperswil_dark_filled);
-        map.put("Light", R.raw.visitrapperswil_light);
-        map.put("Light Filled", R.raw.visitrapperswil_light_filled);
+        map.put("Light", R.raw.white);
+        map.put("Dark", R.raw.black);
+        map.put("None", R.raw.none);
+        //map.put("Dark", R.raw.visitrapperswil_dark);
+        //map.put("Dark Filled", R.raw.visitrapperswil_dark_filled);
+        //map.put("Light", R.raw.visitrapperswil_light);
+        //map.put("Light Filled", R.raw.visitrapperswil_light_filled);
         REPOST_STYLES = Collections.unmodifiableMap(map);
     }
 }
