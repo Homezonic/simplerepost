@@ -7,3 +7,5 @@
 *.swp
 *.apk
 manifest-merger-release-report.txt
+app/src/main/res/values/api_keys.xml
+FILE_NAME
