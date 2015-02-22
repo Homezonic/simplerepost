@@ -207,6 +207,10 @@ public class MainActivity extends ActionBarActivity {
             Log.i(LOG_TAG, "Launching about activity");
             Intent intent = new Intent(this, AboutActivity.class);
             startActivity(intent);
+        } else if (id == R.id.action_intro) {
+            Log.i(LOG_TAG, "Launching intro activity");
+            Intent intent = new Intent(this, IntroActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

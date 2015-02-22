@@ -50,6 +50,11 @@
             android:parentActivityName=".activities.AboutActivity">
         </activity>
 
+        <activity
+            android:name=".activities.IntroActivity"
+            android:parentActivityName=".activities.MainActivity">
+        </activity>
+
         <meta-data
             android:name="com.crashlytics.ApiKey"
             android:value="@string/fabric_api_key" />

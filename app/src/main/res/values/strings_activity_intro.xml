@@ -1,0 +1,7 @@
+<resources>
+    <string name="intro_text_slide_1">
+        Welcome to SimpleRepost! This app makes it simple to repost an image that you saw on
+        Instagram to your own account.
+    </string>
+    <string name="intro_swipe_right">Swipe screen to continue.</string>
+</resources>
