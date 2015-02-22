@@ -18,13 +18,15 @@
 
 package ch.dbrgn.android.simplerepost.activities;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+
+import com.viewpagerindicator.CirclePageIndicator;
 
 import ch.dbrgn.android.simplerepost.R;
 
@@ -33,7 +35,16 @@ public class IntroActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show.
      */
-    private static final int NUM_PAGES = 2;
+    private static int[] VIEW_PAGES = new int[] {
+            R.layout.viewpage_introduction_1,
+            R.layout.viewpage_introduction_2,
+            R.layout.viewpage_introduction_3,
+            R.layout.viewpage_introduction_4,
+            R.layout.viewpage_introduction_5,
+            R.layout.viewpage_introduction_6,
+            R.layout.viewpage_introduction_7,
+            R.layout.viewpage_introduction_8,
+    };
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -55,6 +66,10 @@ public class IntroActivity extends FragmentActivity {
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+        //Bind the title indicator to the adapter
+        CirclePageIndicator titleIndicator = (CirclePageIndicator)findViewById(R.id.viewpager_dots);
+        titleIndicator.setViewPager(mPager);
     }
 
     @Override
@@ -70,7 +85,7 @@ public class IntroActivity extends FragmentActivity {
     }
 
     /**
-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
+     * A simple pager adapter that represents multiple ScreenSlidePageFragment objects, in
      * sequence.
      */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
@@ -80,12 +95,21 @@ public class IntroActivity extends FragmentActivity {
 
         @Override
         public android.support.v4.app.Fragment getItem(int position) {
-            return new IntroPageFragment();
+            // Create bundle and fragment instances
+            final Bundle bundle = new Bundle();
+            final Fragment fragment = new IntroPageFragment();
+
+            // Set arguments
+            final int viewpageResource = VIEW_PAGES[position];
+            bundle.putInt(IntroPageFragment.ARGUMENT_VIEWPAGE, viewpageResource);
+            fragment.setArguments(bundle);
+
+            return fragment;
         }
 
         @Override
         public int getCount() {
-            return NUM_PAGES;
+            return VIEW_PAGES.length;
         }
     }
 

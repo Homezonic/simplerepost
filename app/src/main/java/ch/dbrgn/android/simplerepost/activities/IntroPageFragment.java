@@ -24,17 +24,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ch.dbrgn.android.simplerepost.R;
-
 
 public class IntroPageFragment extends Fragment {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(
-                R.layout.viewpage_introduction_1, container, false);
+    public static String ARGUMENT_VIEWPAGE = "viewpage";
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final Bundle arguments = getArguments();
+        final int viewpage = arguments.getInt(ARGUMENT_VIEWPAGE);
+
+        ViewGroup rootView = (ViewGroup) inflater.inflate(viewpage, container, false);
         return rootView;
     }
 

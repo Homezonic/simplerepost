@@ -1,38 +1,45 @@
 <!-- fragment_screen_slide_page.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_vertical"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:orientation="vertical">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
-        android:src="@drawable/sr_logo_large"/>
+        android:layout_margin="8dp"
+        android:src="@drawable/sr_logo"/>
 
     <TextView
-        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:layout_margin="8dp"
+        android:text="@string/intro_step3_title"
         android:textStyle="bold"
         android:textSize="24sp"
         android:gravity="center" />
 
     <TextView
-        android:padding="16dp"
-        android:lineSpacingMultiplier="1.2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/intro_text_slide_1"
+        android:layout_margin="8dp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="@string/intro_text_slide_4"
         android:textSize="16sp"
         android:gravity="center" />
 
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        android:layout_weight="1"
+        android:src="@drawable/screenshot_3" />
+
     <TextView
-        android:padding="16dp"
+        android:padding="8dp"
         android:lineSpacingMultiplier="1.2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

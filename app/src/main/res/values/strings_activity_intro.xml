@@ -1,7 +1,45 @@
 <resources>
+    <string name="intro_swipe_right">Swipe screen to continue.</string>
+    <string name="intro_start_using">Alright, I got it!</string>
+
     <string name="intro_text_slide_1">
         Welcome to SimpleRepost! This app makes it simple to repost an image that you saw on
         Instagram to your own account.
     </string>
-    <string name="intro_swipe_right">Swipe screen to continue.</string>
+
+    <string name="intro_step1_title">Step 1</string>
+    <string name="intro_text_slide_2">
+        First, find an image on Instagram that you would like to repost.
+    </string>
+
+    <string name="intro_step2_title">Step 2</string>
+    <string name="intro_text_slide_3">
+        Tap on the small dots below the post.
+    </string>
+
+    <string name="intro_step3_title">Step 3</string>
+    <string name="intro_text_slide_4">
+        Choose "Copy Share URL" from the menu.
+    </string>
+
+    <string name="intro_step4_title">Step 4</string>
+    <string name="intro_text_slide_5">
+        Long-press the URL textbox to paste.
+    </string>
+
+    <string name="intro_step5_title">Step 5</string>
+    <string name="intro_text_slide_6">
+        Press "Paste", then "Preview".
+    </string>
+
+    <string name="intro_step6_title">Step 6</string>
+    <string name="intro_text_slide_7">
+        Choose the desired watermark version. Then, tap "Repost".
+    </string>
+
+    <string name="intro_step7_title">Step 7</string>
+    <string name="intro_text_slide_8">
+        Finally, share to your Instagram app.
+    </string>
+
 </resources>
