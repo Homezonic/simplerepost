@@ -144,6 +144,7 @@ public class LoginActivity extends ActionBarActivity {
      */
     private void launchMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        startActivity(intent); // Launch the new activity
+        finish(); // Remove this activity from the stack
     }
 }
