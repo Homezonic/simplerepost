@@ -19,6 +19,7 @@ package ch.dbrgn.android.simplerepost.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -34,19 +35,14 @@ import com.crashlytics.android.Crashlytics;
 import com.squareup.otto.Bus;
 import com.squareup.otto.Subscribe;
 
-import io.fabric.sdk.android.Fabric;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ch.dbrgn.android.simplerepost.models.User;
-import ch.dbrgn.android.simplerepost.utils.AuthHelper;
-import ch.dbrgn.android.simplerepost.utils.BusProvider;
+import ch.dbrgn.android.simplerepost.Config;
 import ch.dbrgn.android.simplerepost.R;
-import ch.dbrgn.android.simplerepost.utils.TextValidator;
-import ch.dbrgn.android.simplerepost.utils.ToastHelper;
 import ch.dbrgn.android.simplerepost.api.ApiFactory;
 import ch.dbrgn.android.simplerepost.api.MediaAccessType;
 import ch.dbrgn.android.simplerepost.events.ApiErrorEvent;
@@ -58,10 +54,17 @@ import ch.dbrgn.android.simplerepost.events.LoadMediaEvent;
 import ch.dbrgn.android.simplerepost.events.LoadedCurrentUserEvent;
 import ch.dbrgn.android.simplerepost.events.LoadedMediaEvent;
 import ch.dbrgn.android.simplerepost.models.Media;
+import ch.dbrgn.android.simplerepost.models.User;
 import ch.dbrgn.android.simplerepost.services.CurrentUserService;
 import ch.dbrgn.android.simplerepost.services.FileDownloadService;
 import ch.dbrgn.android.simplerepost.services.MediaService;
 import ch.dbrgn.android.simplerepost.services.Service;
+import ch.dbrgn.android.simplerepost.utils.AuthHelper;
+import ch.dbrgn.android.simplerepost.utils.BusProvider;
+import ch.dbrgn.android.simplerepost.utils.PreferencesHelper;
+import ch.dbrgn.android.simplerepost.utils.TextValidator;
+import ch.dbrgn.android.simplerepost.utils.ToastHelper;
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -123,6 +126,14 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         });
+
+        // If this is the first run of the app, show the intro activity
+        if (isFirstRun()) {
+            Log.i(LOG_TAG, "This is the first run of the app");
+            Log.i(LOG_TAG, "Launching intro activity");
+            Intent intent = new Intent(this, IntroActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -358,6 +369,14 @@ public class MainActivity extends ActionBarActivity {
             return matcher.group(1);
         }
         return null;
+    }
+
+    /**
+     * Determine whether this is the first run of the app.
+     */
+    private Boolean isFirstRun() {
+        final SharedPreferences preferences = PreferencesHelper.getSharedPreferences(this);
+        return preferences.getBoolean(Config.SHARED_PREFS_KEY_FIRSTRUN, true);
     }
 
 }

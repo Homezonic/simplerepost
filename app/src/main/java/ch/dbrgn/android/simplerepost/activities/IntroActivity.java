@@ -25,12 +25,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.Button;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
+import ch.dbrgn.android.simplerepost.Config;
 import ch.dbrgn.android.simplerepost.R;
+import ch.dbrgn.android.simplerepost.utils.PreferencesHelper;
 
 
 public class IntroActivity extends FragmentActivity {
@@ -72,6 +72,12 @@ public class IntroActivity extends FragmentActivity {
         // Bind the title indicator to the adapter
         CirclePageIndicator titleIndicator = (CirclePageIndicator)findViewById(R.id.viewpager_dots);
         titleIndicator.setViewPager(mPager);
+
+        // If this has been shown, set the isFirstRun shared property to false.
+        PreferencesHelper.getSharedPreferences(this)
+            .edit()
+            .putBoolean(Config.SHARED_PREFS_KEY_FIRSTRUN, false)
+            .apply();
     }
 
     /**

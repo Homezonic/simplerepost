@@ -28,6 +28,7 @@ public class Config {
     public static final String IG_API_URL = "https://api.instagram.com/v1";
 
     public static final String SHARED_PREFS_NAME = "SimpleRepostPreferences";
+    public static final String SHARED_PREFS_KEY_FIRSTRUN = "isFirstRun";
 
     public static final String PICTURES_DIRECTORY_NAME = "SimpleRepost";
 
