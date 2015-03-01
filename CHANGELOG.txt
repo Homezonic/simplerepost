@@ -6,6 +6,14 @@ Possible log types are ``[add]``, ``[bug]``, ``[change]`` and ``[info]``.
 
 ---
 
+v1.0.0 (2015-03-01)
+
+- [add] New app icon!
+- [add] Translation to German (#8)
+- [add] New "about this app" screen (#14)
+- [add] Introduction to the app on first launch (#13)
+- [change] Some other small bugfixes and improvements
+
 v0.9.6 (2015-02-14)
 
 - [add] Configurable caption text (#7)
