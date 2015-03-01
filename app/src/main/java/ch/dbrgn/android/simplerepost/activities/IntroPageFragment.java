@@ -23,6 +23,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import ch.dbrgn.android.simplerepost.R;
 
 
 public class IntroPageFragment extends Fragment {
@@ -34,8 +37,28 @@ public class IntroPageFragment extends Fragment {
         final Bundle arguments = getArguments();
         final int viewpage = arguments.getInt(ARGUMENT_VIEWPAGE);
 
+        // Inflate root view
         ViewGroup rootView = (ViewGroup) inflater.inflate(viewpage, container, false);
+
+        // Set onClickListener on exit button
+        Button exitButton = (Button)rootView.findViewById(R.id.exit_button);
+        if (exitButton != null) {
+            exitButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finishActivity();
+                }
+            });
+        }
+
         return rootView;
+    }
+
+    /**
+     * Finish parent activity.
+     */
+    private void finishActivity() {
+        getActivity().finish();
     }
 
 }
