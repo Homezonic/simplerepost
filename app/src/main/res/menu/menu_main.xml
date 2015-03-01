@@ -3,15 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="ch.dbrgn.android.simplerepost.activities.MainActivity">
 
-    <item android:id="@+id/action_about" android:title="@string/action_about"
-        android:orderInCategory="110" app:showAsAction="never" />
+    <item android:id="@+id/action_intro" android:title="@string/action_help"
+        android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_logout" android:title="@string/action_logout"
-        android:orderInCategory="90" app:showAsAction="never" />
+        android:orderInCategory="110" app:showAsAction="never" />
+    <item android:id="@+id/action_about" android:title="@string/action_about"
+        android:orderInCategory="120" app:showAsAction="never" />
     <!--
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
     -->
-    <item android:id="@+id/action_intro" android:title="Intro"
-        android:orderInCategory="100" app:showAsAction="never" />
+
 
 </menu>

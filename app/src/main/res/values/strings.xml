@@ -8,6 +8,7 @@
     <string name="action_about">About this app</string>
     <string name="action_repost">Repost</string>
     <string name="action_preview">Preview</string>
+    <string name="action_help">Help</string>
     <string name="watermark_light">Light</string>
     <string name="watermark_dark">Dark</string>
     <string name="watermark_none">None</string>
