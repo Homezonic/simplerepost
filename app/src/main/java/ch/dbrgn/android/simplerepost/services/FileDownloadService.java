@@ -69,8 +69,6 @@ public class FileDownloadService implements Service {
 
         @Override
         protected void onPostExecute(ImageBitmap imageBitmap) {
-            super.onPostExecute(imageBitmap);
-
             if (imageBitmap != null) {
                 mBus.post(new DownloadedBitmapEvent(imageBitmap));
             }
