@@ -6,6 +6,10 @@ Possible log types are ``[add]``, ``[bug]``, ``[change]`` and ``[info]``.
 
 ---
 
+v1.0.1 (2015-03-05)
+
+- [bug] Fixed potential crash during preview
+
 v1.0.0 (2015-03-01)
 
 - [add] New app icon!
