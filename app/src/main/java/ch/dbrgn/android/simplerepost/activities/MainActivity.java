@@ -277,7 +277,7 @@ public class MainActivity extends ActionBarActivity {
             Log.e(LOG_TAG, "Media is null");
 
             // Hide progress dialog
-            mPreviewProgressDialog.dismiss();
+            dismissPreviewProgressDialog();
 
             return;
         } else if (mMedia.getType().equals("video")) {
@@ -285,7 +285,7 @@ public class MainActivity extends ActionBarActivity {
             Log.w(LOG_TAG, "User tried to repost a video");
 
             // Hide progress dialog
-            mPreviewProgressDialog.dismiss();
+            dismissPreviewProgressDialog();
 
             return;
         }
@@ -299,7 +299,7 @@ public class MainActivity extends ActionBarActivity {
     @Subscribe
     public void onDownloadedBitmap(DownloadedBitmapEvent event) {
         // Hide progress dialog
-        mPreviewProgressDialog.dismiss();
+        dismissPreviewProgressDialog();
 
         // Verify bitmap was sent
         final Bitmap bitmap = event.getBitmap();
@@ -343,7 +343,7 @@ public class MainActivity extends ActionBarActivity {
         Log.e(LOG_TAG, "ApiErrorEvent: " + event.getErrorMessage());
 
         // Hide progress dialog
-        mPreviewProgressDialog.dismiss();
+        dismissPreviewProgressDialog();
     }
 
     @Subscribe
@@ -352,7 +352,7 @@ public class MainActivity extends ActionBarActivity {
         Log.e(LOG_TAG, "DownloadErrorEvent: " + event.getErrorMessage());
 
         // Hide progress dialog
-        mPreviewProgressDialog.dismiss();
+        dismissPreviewProgressDialog();
     }
 
 
@@ -377,6 +377,15 @@ public class MainActivity extends ActionBarActivity {
     private Boolean isFirstRun() {
         final SharedPreferences preferences = PreferencesHelper.getSharedPreferences(this);
         return preferences.getBoolean(Config.SHARED_PREFS_KEY_FIRSTRUN, true);
+    }
+
+    /**
+     * Dismiss the preview progress dialog.
+     */
+    private void dismissPreviewProgressDialog() {
+        if (mPreviewProgressDialog != null) {
+            mPreviewProgressDialog.dismiss();
+        }
     }
 
 }
