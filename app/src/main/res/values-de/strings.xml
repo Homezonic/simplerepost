@@ -28,8 +28,10 @@
     <string name="title_activity_main">Simple Repost (Beta)</string>
     <string name="title_activity_repost">Reposten</string>
     <string name="title_activity_settings">Einstellungen</string>
-    <string name="watermark_dark">Dunkel</string>
-    <string name="watermark_light">Hell</string>
+    <string name="watermark_dark">Pfeile Dunkel</string>
+    <string name="watermark_light">Pfeile Hell</string>
+    <string name="watermark_sr_light">SimpleRepost Hell</string>
+    <string name="watermark_sr_dark">SimpleRepost Dunkel</string>
     <string name="watermark_none">Ohne</string>
     <string name="welcome_text">Hallo!</string>
     <string name="welcome_text_personalized">Hallo, %s!</string>

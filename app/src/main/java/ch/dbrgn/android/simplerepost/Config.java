@@ -35,6 +35,8 @@ public class Config {
     public static final Map<Integer, Integer> REPOST_STYLES;
     static {
         Map<Integer, Integer> map = new HashMap<>();
+        map.put(R.string.watermark_sr_light, R.raw.sr_white);
+        map.put(R.string.watermark_sr_dark, R.raw.sr_black);
         map.put(R.string.watermark_light, R.raw.white);
         map.put(R.string.watermark_dark, R.raw.black);
         map.put(R.string.watermark_none, R.raw.none);

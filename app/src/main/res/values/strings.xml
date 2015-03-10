@@ -9,8 +9,10 @@
     <string name="action_repost">Repost</string>
     <string name="action_preview">Preview</string>
     <string name="action_help">Help</string>
-    <string name="watermark_light">Light</string>
-    <string name="watermark_dark">Dark</string>
+    <string name="watermark_light">Arrows Light</string>
+    <string name="watermark_dark">Arrows Dark</string>
+    <string name="watermark_sr_light">SimpleRepost Light</string>
+    <string name="watermark_sr_dark">SimpleRepost Dark</string>
     <string name="watermark_none">None</string>
 
     <string name="error_generic">Something went wrong, please try again.</string>
