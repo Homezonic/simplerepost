@@ -376,11 +376,13 @@ public class RepostActivity extends ActionBarActivity {
      */
     private String getCaptionString() {
         // Read template from settings
-        final SharedPreferences preferences = PreferencesHelper.getSharedPreferences(this);
-        String captionString = preferences.getString(
-                SettingsActivity.SETTING_CAPTION,
-                getString(R.string.settings_caption_default_template)
-        );
+        // Commented out for the moment. TODO: Handle this in pro version.
+        //final SharedPreferences preferences = PreferencesHelper.getSharedPreferences(this);
+        //final String captionString = preferences.getString(
+        //        SettingsActivity.SETTING_CAPTION,
+        //        getString(R.string.settings_caption_default_template)
+        //);
+        final String captionString = getString(R.string.settings_caption_default_template);
         Log.d(LOG_TAG, "Using caption template: " + captionString);
 
         // Replace placeholders
