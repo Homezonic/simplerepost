@@ -18,7 +18,7 @@
 package ch.dbrgn.android.simplerepost;
 
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Config {
@@ -34,7 +34,7 @@ public class Config {
 
     public static final Map<Integer, Integer> REPOST_STYLES;
     static {
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new LinkedHashMap<>();
         map.put(R.string.watermark_sr_light, R.raw.sr_white);
         map.put(R.string.watermark_sr_dark, R.raw.sr_black);
         map.put(R.string.watermark_light, R.raw.white);
