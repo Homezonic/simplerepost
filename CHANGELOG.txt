@@ -6,7 +6,7 @@ Possible log types are ``[add]``, ``[bug]``, ``[change]`` and ``[info]``.
 
 ---
 
-v1.0.2 (?)
+v1.0.2 (2015-03-11)
 
 - [bug] Fixed potential crash when user info can't be fetched (#24)
 - [add] Added SimpleRepost watermarks (#20)
