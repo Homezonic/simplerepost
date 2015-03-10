@@ -386,7 +386,9 @@ public class RepostActivity extends ActionBarActivity {
         // Replace placeholders
         StringTemplate template = new StringTemplate(captionString);
         template.replace("{author}", mMedia.getUser().getUsername());
-        template.replace("{reposter}", mCurrentUser.getUsername());
+        if (mCurrentUser != null) {
+            template.replace("{reposter}", mCurrentUser.getUsername());
+        }
 
         // Return final string
         final String finalCaption = template.toString();

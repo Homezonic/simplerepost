@@ -6,6 +6,10 @@ Possible log types are ``[add]``, ``[bug]``, ``[change]`` and ``[info]``.
 
 ---
 
+v1.0.2 (?)
+
+- [bug] Fixed potential crash when user info can't be fetched (#24)
+
 v1.0.1 (2015-03-05)
 
 - [bug] Fixed potential crash during preview

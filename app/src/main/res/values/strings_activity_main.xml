@@ -10,6 +10,7 @@
 
     <string name="error_validation">This must be an Instagram URL in the form "https://instagram.com/p/ABC123".</string>
     <string name="error_download_media_info">Could not download media information from Instagram</string>
+    <string name="error_fetch_user">Could not download current user information from Instagram</string>
     <string name="error_repost_video">Reposting videos is currently not supported</string>
     <string name="error_download_media">Could not download media from Instagram</string>
     <string name="error_save_image">Could not save the image to the filesystem</string>

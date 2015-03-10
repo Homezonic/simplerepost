@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -298,6 +299,41 @@ public class MainActivity extends ActionBarActivity {
 
     @Subscribe
     public void onDownloadedBitmap(DownloadedBitmapEvent event) {
+        // We need the current user information. Check whether it's available.
+        if (mCurrentUser == null) {
+            // Current user hasn't been fetched yet.
+            // Maybe something went wrong? Try again to make sure.
+            Log.w(LOG_TAG, "No information about current user. Trying to re-fetch within 5s.");
+            BusProvider.getInstance().post(new LoadCurrentUserEvent(AuthHelper.getToken(this)));
+
+            // Wait for max 5 seconds
+            for (int i = 0; i < 10; i++) {
+                SystemClock.sleep(500);
+                if (mCurrentUser != null) {
+                    break;
+                }
+            }
+
+            // Still no current user. Something went wrong.
+            if (mCurrentUser == null) {
+                // Show message
+                ToastHelper.showShortToast(this, getString(R.string.error_fetch_user));
+
+                // Hide progress dialog
+                dismissPreviewProgressDialog();
+
+                // Log to syslog and crashlytics
+                Log.e(LOG_TAG, "Could not fetch information about current user");
+                try {
+                    throw new RuntimeException("Could not fetch information about current user");
+                } catch (RuntimeException e) {
+                    Crashlytics.logException(e);
+                }
+
+                return;
+            }
+        }
+
         // Hide progress dialog
         dismissPreviewProgressDialog();
 

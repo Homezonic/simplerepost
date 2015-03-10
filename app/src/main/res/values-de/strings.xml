@@ -59,4 +59,5 @@
     <string name="intro_text_slide_6">Drücke "Einfügen", dann "Vorschau".</string>
     <string name="intro_text_slide_7">Wähle das gewünschte Wasserzeichen. Dann, drücke "Repost".</string>
     <string name="intro_text_slide_8">Zuletzt, teile das Bild an deine Instagram App.</string>
+    <string name="error_fetch_user">Konnte Informationen zum aktuellen Benutzer nicht von Instagram herunterladen</string>
 </resources>
