@@ -3,5 +3,7 @@
     <string name="title_activity_settings">Settings</string>
 
     <string name="settings_caption_title">Caption Text</string>
-    <string name="settings_caption_default_template" translatable="false">Congrats! Repost from @{author} by @{reposter} with SimpleRepost app for Android.</string>
+    <string name="settings_caption_default_template" translatable="false">
+        Congrats! Repost from @{author} by @{reposter} using #simplerepostapp.
+    </string>
 </resources>
