@@ -38,11 +38,12 @@ import ch.dbrgn.android.simplerepost.events.DownloadBitmapEvent;
 import ch.dbrgn.android.simplerepost.events.DownloadErrorEvent;
 import ch.dbrgn.android.simplerepost.events.DownloadedBitmapEvent;
 import ch.dbrgn.android.simplerepost.models.ImageBitmap;
+import ch.dbrgn.android.simplerepost.utils.AsyncTaskResult;
 
 
 public class FileDownloadService implements Service {
 
-    public static final String LOG_TAG = FileDownloadService.class.getName();
+    private static final String LOG_TAG = FileDownloadService.class.getName();
 
     private final Bus mBus;
 
@@ -58,82 +59,81 @@ public class FileDownloadService implements Service {
     /**
      * Async task that downloads the bitmap in a background thread.
      */
-    private class DownloadBitmapTask extends AsyncTask<String, Void, ImageBitmap> {
+    private class DownloadBitmapTask extends AsyncTask<String, Void, AsyncTaskResult<ImageBitmap>> {
 
         @Override
-        protected ImageBitmap doInBackground(String... params) {
+        protected AsyncTaskResult<ImageBitmap> doInBackground(String... params) {
             final String url = params[0];
             return downloadBitmap(url);
-
         }
 
         @Override
-        protected void onPostExecute(ImageBitmap imageBitmap) {
-            if (imageBitmap != null) {
+        protected void onPostExecute(AsyncTaskResult<ImageBitmap> result) {
+            if (result.hasError()) {
+                mBus.post(new DownloadErrorEvent(result.getError()));
+            } else {
+                final ImageBitmap imageBitmap = result.getResult();
                 mBus.post(new DownloadedBitmapEvent(imageBitmap));
             }
         }
 
-    }
+        /**
+         * Function that downloads the url and returns an AsyncTaskResult<ImageBitmap> instance.
+         *
+         * This code should be run in a background thread!
+         */
+        private AsyncTaskResult<ImageBitmap> downloadBitmap(String url) {
+            final DefaultHttpClient client = new DefaultHttpClient();
+            Bitmap bitmap = null;
 
-    /**
-     * Function that downloads the url and returns a Bitmap instance.
-     *
-     * If an error occurs, a DownloadErrorEvent is posted into the
-     * bus and null is returned.
-     *
-     * You should probably run this code in a background thread!
-     */
-    private ImageBitmap downloadBitmap(String url) {
-        final DefaultHttpClient client = new DefaultHttpClient();
-        Bitmap bitmap = null;
+            // Parse filename out of URL
+            final String[] parts = url.split("/");
+            final String filename = parts[parts.length - 1];
 
-        // Parse filename out of URL
-        final String[] parts = url.split("/");
-        final String filename = parts[parts.length - 1];
+            final HttpGet getRequest = new HttpGet(url);
+            try {
+                // Do the request
+                HttpResponse response = client.execute(getRequest);
 
-        final HttpGet getRequest = new HttpGet(url);
-        try {
-            // Do the request
-            HttpResponse response = client.execute(getRequest);
+                // Check status code
+                final int statusCode = response.getStatusLine().getStatusCode();
 
-            // Check status code
-            final int statusCode = response.getStatusLine().getStatusCode();
-
-            // Handle error case
-            if (statusCode != HttpStatus.SC_OK) {
-                final String message = "Error " + statusCode + " while retrieving bitmap from " + url;
-                Log.w(LOG_TAG, message);
-                mBus.post(new DownloadErrorEvent(message));
-                return null;
-            }
-
-            // Get the data
-            final HttpEntity entity = response.getEntity();
-            if (entity != null) {
-                InputStream inputStream = null;
-                try {
-                    // Get contents from the stream
-                    inputStream = entity.getContent();
-
-                    // Decode stream data back into image Bitmap that android understands
-                    bitmap = BitmapFactory.decodeStream(inputStream);
-                } finally {
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    entity.consumeContent();
+                // Handle error case
+                if (statusCode != HttpStatus.SC_OK) {
+                    final String message = "Error " + statusCode + " while retrieving bitmap from " + url;
+                    Log.w(LOG_TAG, message);
+                    return new AsyncTaskResult<>(message);
                 }
+
+                // Get the data
+                final HttpEntity entity = response.getEntity();
+                if (entity != null) {
+                    InputStream inputStream = null;
+                    try {
+                        // Get contents from the stream
+                        inputStream = entity.getContent();
+
+                        // Decode stream data back into image Bitmap that android understands
+                        bitmap = BitmapFactory.decodeStream(inputStream);
+                    } finally {
+                        if (inputStream != null) {
+                            inputStream.close();
+                        }
+                        entity.consumeContent();
+                    }
+                }
+            } catch (Exception e) {
+                // TODO: We could provide a more explicit error message for IOException
+                getRequest.abort();
+                final String message = "Something went wrong while retrieving bitmap."; // TODO translate
+                Log.e(LOG_TAG, message, e);
+                return new AsyncTaskResult<>(message);
             }
-        } catch (Exception e) {
-            // You Could provide a more explicit error message for IOException
-            getRequest.abort();
-            final String message = "Something went wrong while retrieving bitmap from " + url + e.toString();
-            Log.e(LOG_TAG, message);
-            mBus.post(new DownloadErrorEvent(message));
+
+            final ImageBitmap imageBitmap = new ImageBitmap(bitmap, filename);
+            return new AsyncTaskResult<>(imageBitmap);
         }
 
-        return new ImageBitmap(bitmap, filename);
     }
 
 }
