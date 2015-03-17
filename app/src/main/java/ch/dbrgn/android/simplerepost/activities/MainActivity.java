@@ -71,7 +71,7 @@ import io.fabric.sdk.android.Fabric;
 public class MainActivity extends ActionBarActivity {
 
     // Log tag
-    public static final String LOG_TAG = MainActivity.class.getName();
+    private static final String LOG_TAG = MainActivity.class.getName();
 
     // Private members
     private ArrayList<Service> mServices = new ArrayList<>();
@@ -339,9 +339,18 @@ public class MainActivity extends ActionBarActivity {
 
         // Verify bitmap was sent
         final Bitmap bitmap = event.getBitmap();
-        if (bitmap == null) {
+        if (bitmap == null || bitmap.isRecycled()) {
             ToastHelper.showShortToast(this, getString(R.string.error_download_media));
-            Log.e(LOG_TAG, "Bitmap is null");
+            if (bitmap == null) {
+                Log.e(LOG_TAG, "Bitmap is null");
+            } else {
+                Log.e(LOG_TAG, "Bitmap has already been recycled");
+                try {
+                    throw new RuntimeException("Bitmap has already been recycled");
+                } catch (RuntimeException e) {
+                    Crashlytics.logException(e);
+                }
+            }
             return;
         }
 
@@ -353,11 +362,11 @@ public class MainActivity extends ActionBarActivity {
             stream = openFileOutput(filename, MODE_PRIVATE);
 
             // Compress into file
-            event.getBitmap().compress(Bitmap.CompressFormat.PNG, 100, stream);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 
             // Cleanup
             stream.close();
-            event.getBitmap().recycle();
+            bitmap.recycle();
         } catch (IOException e) {
             ToastHelper.showShortToast(this, getString(R.string.error_save_image));
             Log.e(LOG_TAG, "IOException: " + e.toString());
