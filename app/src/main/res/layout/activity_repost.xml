@@ -22,6 +22,14 @@
         android:layout_below="@id/welcome_text"
         android:layout_marginTop="16dp"/>
 
+    <Button
+        android:id="@+id/repost_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/action_repost"
+        android:onClick="eventRepost" />
+
     <ImageView
         android:id="@+id/media_preview"
         android:layout_width="match_parent"
@@ -31,13 +39,5 @@
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/image_description" />
-
-    <Button
-        android:id="@+id/repost_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/action_repost"
-        android:onClick="eventRepost" />
 
 </RelativeLayout>
