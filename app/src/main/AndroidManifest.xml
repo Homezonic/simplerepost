@@ -56,7 +56,8 @@
 
         <meta-data
             android:name="com.crashlytics.ApiKey"
-            android:value="@string/fabric_api_key" />
+            android:value="PUT_CRASHLYTICS_API_KEY_HERE" />
+
     </application>
 
 </manifest>
