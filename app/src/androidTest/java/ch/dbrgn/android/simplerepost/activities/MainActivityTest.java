@@ -17,7 +17,6 @@
  **/
 package ch.dbrgn.android.simplerepost.activities;
 
-import android.content.SharedPreferences;
 import android.test.ActivityInstrumentationTestCase2;
 
 import com.robotium.solo.Solo;

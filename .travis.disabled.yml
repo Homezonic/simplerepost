@@ -1,0 +1,30 @@
+language: android
+
+# Environment
+env:
+  global:
+    # Contains CRASHLYTICS_KEY
+    secure: QvkL+F7pln2o66vEa5QaHJcy8/8IPR2SX7g3i7+8ah92KdAsNOnCQDWeW7r4Iis05qb/8QpIFS0jMu9aPSu7SVW8GMq2rcgM6taOsiD36eX6pYFWEQbK58QetTjNFzdjqC7cyFrd47xT9U0FpVFb21M1hj/ITH/yz5mz3H1Nqxc=
+
+# Android config
+android:
+  components:
+    # The BuildTools version used by your project
+    - build-tools-19.1.0
+
+    # The SDK version used to compile your project
+    - android-19
+
+    # System image for emulator
+    - sys-img-armeabi-v7a-android-19
+
+# Emulator Management: Create, Start and Wait
+before_script:
+  - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+  - sed -i "s/PUT_CRASHLYTICS_API_KEY_HERE/$CRASHLYTICS_KEY/" app/src/main/AndroidManifest.xml
+
+# The main test script
+script: ./gradlew connectedAndroidTest --stacktrace --info --debug
