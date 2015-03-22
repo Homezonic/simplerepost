@@ -42,6 +42,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import ch.dbrgn.android.simplerepost.BuildConfig;
 import ch.dbrgn.android.simplerepost.Config;
 import ch.dbrgn.android.simplerepost.R;
 import ch.dbrgn.android.simplerepost.api.ApiFactory;
@@ -89,7 +90,10 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+
+        // Start crashlytics if in non debug mode
+        Crashlytics crashlytics = new Crashlytics.Builder().disabled(BuildConfig.DEBUG).build();
+        Fabric.with(this, crashlytics);
 
         // Access token must be available for this activity to work
         // This is needed because this is the main activity
