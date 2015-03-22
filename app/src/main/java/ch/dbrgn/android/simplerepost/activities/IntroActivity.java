@@ -45,7 +45,6 @@ public class IntroActivity extends FragmentActivity {
             R.layout.viewpage_introduction_5,
             R.layout.viewpage_introduction_6,
             R.layout.viewpage_introduction_7,
-            R.layout.viewpage_introduction_8,
     };
 
     /**

@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="@string/intro_step5_title"
+        android:text="@string/intro_step6_title"
         android:textStyle="bold"
         android:textSize="24sp"
         android:gravity="center" />
@@ -36,7 +36,7 @@
         android:layout_height="0dp"
         android:layout_margin="8dp"
         android:layout_weight="1"
-        android:src="@drawable/screenshot_5" />
+        android:src="@drawable/screenshot_6" />
 
     <TextView
         android:padding="8dp"
