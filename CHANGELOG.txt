@@ -6,7 +6,12 @@ Possible log types are ``[add]``, ``[bug]``, ``[change]`` and ``[info]``.
 
 ---
 
-v1.0.2 (2015-03-11)
+v1.1.1 (2015-03-29)
+
+- [bug] Various network related bugfixes that occured in very rare cases (#25, #26)
+- [bug] Prevent overlapping of repost button and image (#17)
+
+v1.1.0 (2015-03-11)
 
 - [bug] Fixed potential crash when user info can't be fetched (#24)
 - [add] Added SimpleRepost watermarks (#20)
